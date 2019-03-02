@@ -198,25 +198,29 @@ namespace Homework2
                 {
                     break;
                 }
-                if(i%3 == 0)
-                {
-                    Console.WriteLine("Fizz");
-                }
-                if (i % 5 == 0)
-                {
-                    Console.WriteLine("Buzz");
-                }
-                if (i % 3 == 0|| i%5== 0)
+                bool fizz = i % 3 == 0;
+                bool buzz = i % 5 == 0;
+                if (fizz && buzz)
                 {
                     Console.WriteLine("FizzBuzz");
                 }
-                Console.WriteLine(i);
-
+                else if (fizz)
+                {
+                    Console.WriteLine("Fizz");
+                }
+                else if (buzz)
+                {
+                    Console.WriteLine("Buzz");
+                }
+                else
+                {
+                    Console.WriteLine(i);
+                }
 
             }
 
 
-                Console.ReadLine();
+            Console.ReadLine();
         }
 
     }
