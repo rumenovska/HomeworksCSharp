@@ -76,7 +76,7 @@ namespace Homework4
 
                 if (groupNumber.Count == 0)
                 {
-                    throw new Exception($"No group with number {groupNum}");
+                    throw new Exception($"Therw is no group with number {groupNum}");
                 }
                 else
                 {
