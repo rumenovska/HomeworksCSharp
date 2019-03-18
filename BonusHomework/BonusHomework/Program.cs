@@ -42,7 +42,7 @@ namespace BonusHomework
             //Console.WriteLine(CalcuOfPower(2, 1));
             //Console.WriteLine(CalcuOfPower(5, 3));
 
-            // Task 8 Test
+            
 
             #endregion
         }
@@ -174,7 +174,7 @@ namespace BonusHomework
             else
                 return x * CalcuOfPower(x, y - 1);
         }
-       // Task 8
+       
 
     #endregion
 }
