@@ -10,6 +10,14 @@ namespace Homework4
     class Program
     {
 
+        static void PrintInfo(IEnumerable<Student> name)
+        {
+            foreach (var s in name)
+            {
+                s.GetInfo();
+
+            }
+        }
         static void Main(string[] args)
 #region ListOfStudents
         {
@@ -36,51 +44,80 @@ namespace Homework4
             students.Add(new Student() { FirstName="Madison", LastName="Clark",Id= 20,Age= 28,Gender= Gender.Female,Group= "G6",Course="Web Programming" });
             #endregion
 
-            //all female students
-            IEnumerable<Student> femaleStudents = students.Where(s=> s.Gender == Gender.Female);
-            foreach (var s in femaleStudents)
-            {
-                s.GetInfo();
+            ////all female students
+            //IEnumerable<Student> femaleStudents = students
+            //    .Where(s => s.Gender == Gender.Female)
+            //    .ToList();
 
-            }
-            Console.WriteLine("---------------------------");
-            //all male students
-            IEnumerable<Student> maleStudents = students.Where(s => s.Gender == Gender.Male);
-            foreach (var s in maleStudents)
-            {
-                s.GetInfo();
-
-            }
-            Console.WriteLine("---------------------------");
+            //PrintInfo(femaleStudents);
+            //Console.WriteLine("---------------------------");
+            ////all male students
+            //IEnumerable<Student> maleStudents = students
+            //    .Where(s => s.Gender == Gender.Male)
+            //    .ToList();
+            //PrintInfo(maleStudents);
+            //Console.WriteLine("---------------------------");
             // all students with a first letter of a name 
             Console.WriteLine("Enter letter:");
             string letter = Console.ReadLine();
-            IEnumerable<Student> firstLetter = students.Where(s => s.FirstName.StartsWith(letter));
-            foreach (var s in firstLetter)
-            {
-                s.GetInfo();
-
-            }
+            IEnumerable<Student> firstLetter = students
+                .Where(s => s.FirstName.StartsWith(letter))
+                .ToList();
+            PrintInfo(firstLetter);
             Console.WriteLine("---------------------------");
             // all students that are in group
-            Console.WriteLine("Enter number of Group");
-            string groupNum = Console.ReadLine();
-            IEnumerable<Student> groupNumber = students.Where(s => s.Group == $"G{groupNum}");
-            foreach (var s in groupNumber)
+            try
             {
-                s.GetInfo();
+                Console.WriteLine("Enter number of Group");
+                string groupNum = Console.ReadLine();
+                var groupNumber = students
+                    .Where(x => x.Group == $"G{groupNum}")
+                    .ToList();
 
+                if (groupNumber.Count == 0)
+                {
+                    throw new Exception($"No group with number {groupNum}");
+                }
+                else
+                {
+                    PrintInfo(groupNumber);
+                }
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            ////var groups = students
+            ////    .Select(x => x.Group)
+            ////    .ToList();
+            ////foreach (var s in groups)
+            ////{
+            ////    Console.WriteLine(s);
+            ////}
             Console.WriteLine("---------------------------");
             // student with id
-            Console.WriteLine("Enter Id number:");
-            int num = Int32.Parse(Console.ReadLine());
-            IEnumerable<Student> groupId = students.Where(s => s.Id == num );
-            foreach (var s in groupId)
+            try
             {
-                s.GetInfo();
+                Console.WriteLine("Enter Id number:");
+                int num = Int32.Parse(Console.ReadLine());
+                var groupId = students
+                    .FirstOrDefault(s => s.Id == num);
 
+                groupId.GetInfo();
             }
+            catch(FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(NullReferenceException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.ReadLine();
         }
     }
 }
