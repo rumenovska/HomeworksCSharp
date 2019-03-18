@@ -77,6 +77,10 @@ namespace Homework1
 
 
             Console.ReadLine();
+
         }
+
+
     }
+
 }
