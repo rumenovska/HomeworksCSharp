@@ -58,18 +58,29 @@ namespace Homework4
             //PrintInfo(maleStudents);
             //Console.WriteLine("---------------------------");
             // all students with a first letter of a name 
-            Console.WriteLine("Enter letter:");
-            string letter = Console.ReadLine();
-            IEnumerable<Student> firstLetter = students
-                .Where(s => s.FirstName.StartsWith(letter))
-                .ToList();
-            PrintInfo(firstLetter);
-            Console.WriteLine("---------------------------");
-            // all students that are in group
             try
             {
+                Console.WriteLine("Enter letter:");
+                string letter = Console.ReadLine();
+                var firstLetter = students
+                    .Where(s => s.FirstName.ToLower().StartsWith(letter.ToLower()))
+                    .ToList();
+                if (firstLetter.Count == 0)
+                {
+                    throw new Exception($"There is no student with first letter {letter}");
+                }
+                else {
+                    PrintInfo(firstLetter);
+                }
+                
+            
+           
+            Console.WriteLine("---------------------------");
+            // all students that are in group
+            
+            
                 Console.WriteLine("Enter number of Group");
-                string groupNum = Console.ReadLine();
+                int groupNum = Int32.Parse(Console.ReadLine());
                 var groupNumber = students
                     .Where(x => x.Group == $"G{groupNum}")
                     .ToList();
@@ -82,11 +93,7 @@ namespace Homework4
                 {
                     PrintInfo(groupNumber);
                 }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            
             ////var groups = students
             ////    .Select(x => x.Group)
             ////    .ToList();
@@ -96,8 +103,7 @@ namespace Homework4
             ////}
             Console.WriteLine("---------------------------");
             // student with id
-            try
-            {
+            
                 Console.WriteLine("Enter Id number:");
                 int num = Int32.Parse(Console.ReadLine());
                 var groupId = students
@@ -109,7 +115,11 @@ namespace Homework4
             {
                 Console.WriteLine(ex.Message);
             }
-            catch(NullReferenceException ex)
+            catch(OverflowException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(ArgumentNullException ex)
             {
                 Console.WriteLine(ex.Message);
             }

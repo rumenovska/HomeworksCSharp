@@ -64,7 +64,7 @@ namespace ExercisseClass8
                 }
                 else
                 {
-                    throw new Exception("Wrong input! You have to enter 1 or 2!");
+                    throw new Exception("Wrong input! You have to enter 1 or 2");
                 }
 
                 Console.WriteLine("Movies in this cinema:");
