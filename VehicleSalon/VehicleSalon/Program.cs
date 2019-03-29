@@ -22,6 +22,7 @@ namespace VehicleSalon
             bmwSalon.PriceRange(50000, 80000);
             
             
+            
 
             Console.WriteLine("---------AUDI SALON-----------");
 
@@ -42,10 +43,10 @@ namespace VehicleSalon
             List<Car> opelCars = new List<Car>() { o, o1, o2 };
             opelSalon.Cars = opelCars;
             opelSalon.PriceRange(25000, 45000);
-            Console.WriteLine("Min");
+            Console.WriteLine("Min value");
             opelSalon.PriceRange(20000);
-            Console.WriteLine("Max");
-            opelSalon.PriceRange(20000);
+            Console.WriteLine("Max value");
+            opelSalon.PriceRange(20000f);
             Console.ReadLine();
         }
     }

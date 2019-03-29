@@ -42,7 +42,7 @@ namespace VehicleSalonLibrary
         public void PriceRange(int minValue)
         {
             var MinList = this.Cars
-                .Where(x => x.Price <= minValue)
+                .Where(x => x.Price >= minValue)
                 .ToList();
             foreach (var car in MinList)
             {
@@ -53,7 +53,7 @@ namespace VehicleSalonLibrary
         public void PriceRange(float maxValue)
         {
             var maxList = this.Cars
-                .Where(x => x.Price >= maxValue)
+                .Where(x => x.Price <= maxValue)
                 .ToList();
             foreach (var car in maxList)
             {
