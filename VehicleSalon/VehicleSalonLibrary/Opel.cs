@@ -9,8 +9,8 @@ namespace VehicleSalonLibrary
     public class Opel:Car
     {
         public string CountryOfOrigin { get; set; }
-        public Opel(string model, string manufacturer, int doorNumber, string fuel, double fuelConsumption, int price, string countryOfOrigin)
-           : base(model, manufacturer, doorNumber, fuel, fuelConsumption, price)
+        public Opel(string model, string manufacturer, int doorNumber, string fuel, double fuelConsumption, int price, string countryOfOrigin, Type type)
+           : base(model, manufacturer, doorNumber, fuel, fuelConsumption, price, type)
         {
 
             this.CountryOfOrigin = countryOfOrigin;

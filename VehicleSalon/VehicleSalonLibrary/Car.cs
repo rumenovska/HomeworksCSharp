@@ -14,9 +14,10 @@ namespace VehicleSalonLibrary
         public string Fuel { get; set; }
         public double FuelConsumption { get; set; }
         public int Price { get; set; }
+        public Type Type { get; set; }
 
 
-        public Car(string model, string manufacturer, int doorNumber, string fuel, double fuelConsumption, int price)
+        public Car(string model, string manufacturer, int doorNumber, string fuel, double fuelConsumption, int price, Type type)
         {
             this.Model = model;
             this.Manufacturer = manufacturer;
@@ -24,11 +25,12 @@ namespace VehicleSalonLibrary
             this.Fuel = fuel;
             this.FuelConsumption = fuelConsumption;
             this.Price = price;
+            this.Type = type;
             
         }
         public virtual void Description()
         {
-            Console.WriteLine($"Model: {this.Model}, Manufacturer: {this.Manufacturer}, Number of doors: {this.DoorNumber} ," +
+            Console.WriteLine($"Type: {this.Type}, Model: {this.Model}, Manufacturer: {this.Manufacturer}, Number of doors: {this.DoorNumber} ," +
                 $"Fuel consumption: {this.FuelConsumption}l /100 km, Price: {this.Price}$");
         }
 

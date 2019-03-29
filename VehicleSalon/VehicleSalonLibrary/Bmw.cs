@@ -11,8 +11,8 @@ namespace VehicleSalonLibrary
         public bool HasSolarRoof { get; set; }
          
 
-        public Bmw(string model, string manufacturer, int doorNumber, string fuel, double fuelConsumption, int price, bool hasSolarRoof)
-            :base(model, manufacturer, doorNumber, fuel, fuelConsumption, price)
+        public Bmw(string model, string manufacturer, int doorNumber, string fuel, double fuelConsumption, int price, bool hasSolarRoof, Type type)
+            :base(model, manufacturer, doorNumber, fuel, fuelConsumption, price, type)
         {
             
             this.HasSolarRoof = hasSolarRoof;

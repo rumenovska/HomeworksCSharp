@@ -9,8 +9,8 @@ namespace VehicleSalonLibrary
     public class Audi:Car
     {
         public string Color { get; set; }
-        public Audi(string model, string manufacturer, int doorNumber, string fuel, double fuelConsumption, int price, string color)
-           : base(model, manufacturer, doorNumber, fuel, fuelConsumption, price)
+        public Audi(string model, string manufacturer, int doorNumber, string fuel, double fuelConsumption, int price, string color, Type type)
+           : base(model, manufacturer, doorNumber, fuel, fuelConsumption, price, type)
         {
 
             this.Color = color;

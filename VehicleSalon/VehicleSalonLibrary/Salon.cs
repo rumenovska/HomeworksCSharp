@@ -10,26 +10,23 @@ namespace VehicleSalonLibrary
     {
         
         public string Address { get; set; }
-        public Type Type { get; set; }
         public List<Car> Cars { get; set; }
        
-        public Salon(string address, Type type)
+        public Salon(string address)
         {
             this.Address = address;
-            this.Type = type;
             this.Cars = new List<Car> ();
         }
-        public void PriceRange(int a, int b)
+        public void PriceRange(int from, int to )
         {
             try
             {
-                foreach (var car in this.Cars)
+                var listRange = this.Cars
+                    .Where(x => x.Price >= from && x.Price <= to)
+                    .ToList();
+                foreach(var car in listRange)
                 {
-                    if (car.Price >= a && car.Price <= b)
-                    {
-                        car.Description();
-                    }
-                   
+                    car.Description();
                 }
             }
             catch(FormatException ex)
@@ -42,5 +39,19 @@ namespace VehicleSalonLibrary
                 
             }
         }
+        public void PriceRange(int minValue)
+        {
+            var listMin = this.Cars
+                .Where(x => x.Price <= minValue)
+                .ToList();
+            foreach (var car in listMin)
+            {
+                car.Description();
+            }
+
+        }
+        
+
+
     }
 }
