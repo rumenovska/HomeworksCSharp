@@ -77,7 +77,7 @@ namespace ExercisseClass8
 
                     foreach(var m in currentCinema.ListOfMovies)
                     {
-                        Console.WriteLine($"{m.Title} Price: {m.TicketPrice}");
+                        Console.WriteLine($"Movie: {m.Title} Price: {m.TicketPrice}");
                     }
 
                     string inputMovieName = Console.ReadLine();
@@ -120,25 +120,25 @@ namespace ExercisseClass8
                             throw new Exception("The genre input was not correct! Sorry, you broke it!");
                     }
 
+                    Console.WriteLine("Choose a movie to watch: ( Write the name )");
+                    List<Movie> personMovies = new List<Movie>();
 
-                    Console.WriteLine("Choose a movie to watch: (Enter movie name)");
-
-                    var genreMovies = currentCinema
-                         .ListOfMovies
-                         .Where(x => x.Genre == currentGenre)
-                         .ToList();
+                    List<Movie> genreMovies = currentCinema
+                        .ListOfMovies
+                        .Where(movie => movie.Genre == currentGenre)
+                        .ToList();
 
                     foreach (var movie in genreMovies)
                     {
-                        Console.WriteLine($"{movie.Title} Price: {movie.TicketPrice}");
-                        
+                        personMovies.Add(movie);
+                        Console.WriteLine(movie.Title);
                     }
                     string inputMovie = Console.ReadLine();
-                    Movie currentChooesenMovie = genreMovies
-                        .Where(m => m.Title.Trim().ToLower() == inputMovie.Trim().ToLower())
+                    Movie currentChosenMovie = personMovies
+                        .Where(movie => movie.Title.Trim().ToLower() == inputMovie.Trim().ToLower())
                         .FirstOrDefault();
 
-                    currentCinema.MoviePlaying(currentChooesenMovie);
+                    currentCinema.MoviePlaying(currentChosenMovie);
 
 
                 }
