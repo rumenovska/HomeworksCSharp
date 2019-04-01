@@ -24,10 +24,8 @@ namespace VehicleSalonLibrary
                 var listRange = this.Cars
                     .Where(x => x.Price >= from && x.Price <= to)
                     .ToList();
-                foreach(var car in listRange)
-                {
-                    car.Description();
-                }
+
+                listRange.GetInfo();
             }
             catch(FormatException ex)
             {
@@ -44,10 +42,7 @@ namespace VehicleSalonLibrary
             var MinList = this.Cars
                 .Where(x => x.Price >= minValue)
                 .ToList();
-            foreach (var car in MinList)
-            {
-                car.Description();
-            }
+            MinList.GetInfo();
 
         }
         public void PriceRange(float maxValue)
@@ -55,10 +50,7 @@ namespace VehicleSalonLibrary
             var maxList = this.Cars
                 .Where(x => x.Price <= maxValue)
                 .ToList();
-            foreach (var car in maxList)
-            {
-                car.Description();
-            }
+            maxList.GetInfo();
 
         }
 

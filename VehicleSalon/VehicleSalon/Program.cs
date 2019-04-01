@@ -33,7 +33,7 @@ namespace VehicleSalon
             List<Car> audiCars = new List<Car>() { a, a1, a2 };
             audiSalon.Cars = audiCars;
             audiSalon.PriceRange(30000,45000);
-
+            
             Console.WriteLine("---------OPEL SALON-----------");
 
             Opel o = new Opel("Astra", "Opel", 3, "Petrol", 4.4, 25000, "Germany", VehicleSalonLibrary.Type.Traveling);
